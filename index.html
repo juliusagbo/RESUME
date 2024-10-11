@@ -1,0 +1,255 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;
+      padding-right: 20px;
+      border-right: 1px solid #eee;
+    }
+
+    .left img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-name {
+      margin: 20px 0 10px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .profile-title {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-info {
+      width: 100%;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .contact-item i {
+      width: 25px;
+      color: #4a90e2;
+      margin-right: 10px;
+    }
+
+    .right {
+      width: 60%;
+      padding-left: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: #4a90e2;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 5px;
+    }
+
+    .interests-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .interest-item {
+      display: flex;
+      align-items: center;
+      background-color: #f8f9fa;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+
+    .interest-item img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .education-item, .subject-item {
+      margin-bottom: 10px;
+    }
+
+    .about-text {
+      text-align: justify;
+    }
+
+    /* Tablet Styles */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      .left {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      .right {
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .left img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 5px;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .profile-name {
+        font-size: 20px;
+      }
+
+      .profile-title {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .contact-item {
+        font-size: 14px;
+      }
+
+      .interest-item {
+        padding: 6px 10px;
+        font-size: 14px;
+      }
+
+      .about-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left">
+    <img src="images/pogi.jpg" alt="Julius Agbo">
+    <h1 class="profile-name">Julius Agbo</h1>
+    <h2 class="profile-title">BSIT 3-D</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>09854403879</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>juliusagbo723@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-facebook"></i>
+        <span>Julius Agbo</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Kasadya Puso, Cordova, Cebu</span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="section">
+      <h2 class="section-title">Interests</h2>
+      <ul class="interests-list">
+        <li class="interest-item">
+          <img src="images/gaming.png" alt="Gaming">
+          <span>Gaming</span>
+        </li>
+        <li class="interest-item">
+          <img src="images/cook.png" alt="Cooking">
+          <span>Cooking</span>
+        </li>
+        <li class="interest-item">
+          <img src="images/c.png" alt="Calisthenics">
+          <span>Calisthenics</span>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Major Subjects</h2>
+      <div class="subject-item">Web Development</div>
+      <div class="subject-item">Programming</div>
+      <div class="subject-item">Networking</div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        Embarking on my journey as an IT student has been a transformative experience, reshaping my understanding of technology and its impact on the world. From the moment I first delved into programming languages and system architecture, I discovered a profound fascination with how digital systems work and interact. This curiosity quickly evolved into a passion, driving me to explore various facets of information technology, from coding and software development to cybersecurity and data analysis. Each subject has opened new doors and challenges, pushing me to expand my knowledge and skills in a rapidly evolving field.
+      </p>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="education-item">Catarman Elementary School</div>
+      <div class="education-item">Cordova National High School</div>
+      <div class="education-item">Cordova Public College</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
