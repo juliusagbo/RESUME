@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">Contact Us</h2>
+                <form id="contactForm" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="error-message" id="nameError">Name is required</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                        <div class="error-message" id="messageError">Message is required</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            function showError(input, errorElement) {
+                input.classList.add('is-invalid');
+                errorElement.style.display = 'block';
+            }
+
+            function hideError(input, errorElement) {
+                input.classList.remove('is-invalid');
+                errorElement.style.display = 'none';
+            }
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            function validateInput(input, errorElement, validationFn) {
+                if (!validationFn(input.value)) {
+                    showError(input, errorElement);
+                    return false;
+                }
+                hideError(input, errorElement);
+                return true;
+            }
+
+            // Real-time validation
+            nameInput.addEventListener('input', () => {
+                validateInput(nameInput, document.getElementById('nameError'), 
+                    value => value.trim() !== '');
+            });
+
+            emailInput.addEventListener('input', () => {
+                validateInput(emailInput, document.getElementById('emailError'), 
+                    value => value.trim() !== '' && isValidEmail(value));
+            });
+
+            messageInput.addEventListener('input', () => {
+                validateInput(messageInput, document.getElementById('messageError'), 
+                    value => value.trim() !== '');
+            });
+
+            // Form submission
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                let isValid = true;
+
+                // Validate all fields
+                isValid = validateInput(nameInput, document.getElementById('nameError'), 
+                    value => value.trim() !== '') && isValid;
+                
+                isValid = validateInput(emailInput, document.getElementById('emailError'), 
+                    value => value.trim() !== '' && isValidEmail(value)) && isValid;
+                
+                isValid = validateInput(messageInput, document.getElementById('messageError'), 
+                    value => value.trim() !== '') && isValid;
+
+                if (isValid) {
+                    // Redirect to the thank you page
+                    window.location.href = 'thank-you.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
